@@ -51,8 +51,8 @@ secret_files = [
     'config/static_github.json',
     'config/static_port.json',
 ]
-for secret in secret_files:
-    with open(secret_files, 'r') as file:
+for secret_file in secret_files:
+    with open(secret_file, 'r') as file:
         # Load and parse our JSON
         data = json.loads(file.read())
 
