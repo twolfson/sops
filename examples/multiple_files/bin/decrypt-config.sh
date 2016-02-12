@@ -26,8 +26,8 @@ for file in $(ls config.enc); do
   if echo "$file" | grep -E "${secret_ext}$" &&
       test "$CONFIG_COPY_ONLY" != "TRUE"; then
     sops --decrypt "$src_file" > "$target_file"
-  # Otherwise, copy it
+  # Otherwise, symlink to the original file
   else
-    cp "$src_file" "$target_file"
+    ln -s "../$src_file" "$target_file"
   fi
 done
