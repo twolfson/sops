@@ -25,7 +25,7 @@ To use this example, run the following
     bin/decrypt-secrets.sh
 
     # Optionally edit a secret
-    # bin/edit-secret.sh config/secret.enc.json
+    # bin/edit-secret.sh config.enc/static_github.json
 
     # Run our script
     python main.py
@@ -50,10 +50,12 @@ Files
 -----
 - ``bin/decrypt-config.sh`` - Script to decrypt secret file
 - ``bin/edit-config-file.sh`` - Script to edit a secret file and then decrypt it
-- ``config/secret.enc.json`` - Catch-all file containing our secrets
-- ``config/secret.json`` - Decrypted catch-all secrets file
-- ``config/static.py`` - Configuration file which imports secrets
-- ``.gitignore`` - Ignore file for decrypted secret file
+- ``config`` - Directory containing decrypted secrets
+- ``config.bak`` - Backup of ``config`` to prevent accidental data loss
+- ``config.enc`` - Directory containing encrypted secrets
+    - ``static.py`` - Python script to merge together secrets
+    - ``static_github.json`` - File containing secrets
+- ``.gitignore`` - Ignore file for ``config`` and ``config.bak``
 - ``main.py`` - Example script
 
 Usage
@@ -67,11 +69,11 @@ For development, each developer must have access to the PGP/KMS keys. This means
 
 Testing
 ~~~~~~~
-For testing in a public CI, we can copy ``secret.enc.json`` to ``secret.json``. This will represent the same structure as ``secret.enc.json`` with an additional ``sops`` key but not reveal any secret information.
+For testing in a public CI, we can copy ``config.enc`` to ``config``. The secret files will have structure with an additional ``sops`` key but not reveal any secret information.
 
 ..
 
-    For convenience, we can run ``CONFIG_COPY_ONLY=TRUE bin/decrypt-config.sh`` which will use ``cp`` rather than ``sops --decrypt``.
+    For convenience, we can run ``CONFIG_COPY_ONLY=TRUE bin/decrypt-config.sh`` which will use ``ln -s`` rather than ``sops --decrypt``.
 
 For testing in a private CI where we need private information, see the `Production instructions <#production>`_.
 
