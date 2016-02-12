@@ -1,8 +1,12 @@
-All-in-one example
-==================
-This example is optimized for saving developer time by storing all secrets in a single file (e.g. ``secret.enc.json``).
+Per-file example
+================
+This example is optimized for storing sensitive information next to related non-sensitive information (e.g. password next to username).
 
-The downside is any configurations which should be stored side by side might not be.
+The downsides are:
+
+- Slow down developers by requiring usage of SOPS for non-sensitive information
+- Lose dynamic configurations that rely on reusing variables (e.g. ``test = {'foo': {'bar': common['foo']['bar'], 'baz': false}}``)
+    - There might be work arounds via YAML
 
 Getting started
 ---------------
