@@ -10,6 +10,8 @@ def main():
     print('Configuration')
     print('=============')
     for env_key in ('common', 'development', 'test', 'production'):
+        # Example: `Environment: common`
+        # Example: `-------------------`
         env_str = 'Environment: {env_key}'.format(env_key=env_key)
         print(env_str)
         print(''.join(['-' for char in env_str]))
