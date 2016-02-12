@@ -26,23 +26,22 @@ config = {
 }
 
 
-def walk(val, fn):
+def walk(item, fn):
+    """Traverse dicts and lists to update keys via `fn`"""
     # If we are looking at a dict, then traverse each of its branches
-    if isinstance(val, dict):
-        branch = val
-        for key in branch:
+    if isinstance(item, dict):
+        for key in item:
             # Walk our value
-            walk(branch[key], fn)
+            walk(item[key], fn)
 
             # If we are changing our key, then update it
             new_key = fn(key)
             if new_key != key:
-                branch[new_key] = branch[key]
-                del branch[key]
+                item[new_key] = item[key]
+                del item[key]
     # Otherwise, if we are looking at a list, walk each of its items
-    elif isinstance(val, list):
-        arr = val
-        for val in arr:
+    elif isinstance(item, list):
+        for val in item:
             walk(val, fn)
 
 
