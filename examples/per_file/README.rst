@@ -19,7 +19,7 @@ To use this example, run the following
     gpg --import tests/sops_functional_tests_key.asc
 
     # Navigate to our example directory
-    cd examples/all-in-one
+    cd examples/per_file
 
     # Decrypt our secrets
     bin/decrypt-secrets.sh
