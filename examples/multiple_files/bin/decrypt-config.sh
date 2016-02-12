@@ -3,7 +3,7 @@
 set -e
 
 # Define our secret extenssion
-secret_ext = ".json"
+secret_ext=".json"
 
 # If there is a config directory, then move it to a backup
 if test -d config; then
