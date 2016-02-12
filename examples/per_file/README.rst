@@ -6,7 +6,8 @@ The downsides are:
 
 - Slow down developers by requiring usage of SOPS for non-sensitive information
 - Lose dynamic configurations that rely on reusing variables (e.g. ``test = {'foo': {'bar': common['foo']['bar'], 'baz': false}}``)
-    - There might be work arounds via YAML
+
+  - There might be work arounds via YAML
 
 Getting started
 ---------------
