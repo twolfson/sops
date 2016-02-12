@@ -15,6 +15,7 @@ def main():
         env_str = 'Environment: {env_key}'.format(env_key=env_key)
         print(env_str)
         print(''.join(['-' for char in env_str]))
+
         env_config = config[env_key]
         for key in sorted(env_config.keys()):
             # Example: `port: "8080"`
