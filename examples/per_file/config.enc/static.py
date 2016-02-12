@@ -2,6 +2,8 @@
 import json
 
 # Define our configuration
+# DEV: THE FOLLOWING CONFIGURATIONS SHOULD NOT CONTAIN ANY SECRETS
+#   THIS FILE IS NOT ENCRYPTED!!
 common = {
     'port': 8080,
 }
