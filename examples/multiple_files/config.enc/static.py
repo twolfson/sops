@@ -58,4 +58,18 @@ for secret_file in secret_files:
         # Strip off `_unencrypted` from all keys
         walk(data, lambda key: key.replace('_unencrypted', ''))
 
-        print(data)
+        # For each of the environments
+        for env_key in data:
+            # Load in the respective source and target
+            env_src = data[env_key]
+            env_target = config[env_key]
+
+            # Merge info between configs
+            for key in env_src:
+                if key in env_target:
+                    raise AssertionError(
+                        'Expected "{env_key}.{key}" to not be defined already '
+                        'but it was. '
+                        'Please verify no configs are using the same key'
+                        .format(env_key=env_key, key=key))
+            env_target.update(env_src)
