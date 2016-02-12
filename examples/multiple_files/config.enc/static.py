@@ -49,7 +49,6 @@ def walk(item, fn):
 # For each of our secrets
 secret_files = [
     'config/static_github.json',
-    'config/static_port.json',
 ]
 for secret_file in secret_files:
     with open(secret_file, 'r') as file:
@@ -57,6 +56,6 @@ for secret_file in secret_files:
         data = json.loads(file.read())
 
         # Strip off `_unencrypted` from all keys
-        walk(data, lambda key: key.rstrip('_unencrypted'))
+        walk(data, lambda key: key.replace('_unencrypted', ''))
 
         print(data)

@@ -1,16 +1,19 @@
 {
     "common": {
-        "github_oauth_token": "ENC[AES256_GCM,data:eYUf6p/YR8y/AqBZ4b8=,iv:IKYDu76aR3jMAEQ2aiO/RFNLgSLPLkJtFkdA3sNVfcE=,tag:pOfaZvecagUAJSEayUNKsA==,type:str]"
+        "github_username_unencrypted": "twolfson-dev", 
+        "github_password": "ENC[AES256_GCM,data:h1bhG6v0vDYf0Q==,iv:cQ3IS0D7TnC/06VkEhRcx2ClVGGQbWEXxGvlyBEXxMM=,tag:D/ADFlzJcwkx85GzgQqkfg==,type:str]"
     }, 
     "development": {}, 
     "test": {
-        "github_oauth_token": "ENC[AES256_GCM,data:zovyf21ENcWlmEJ4agK8B7vqPlX/TIY=,iv:CmgQE9AsQFQ3tEbUjYY4bJGQK2j2UV/9zocvOTvA5NE=,tag:CfztdoIaUbwlH0RY4c2jAw==,type:str]"
+        "github_username_unencrypted": "test-user", 
+        "github_password": "ENC[AES256_GCM,data:jFD75rp2Wwbnk0iJ8SYITwccz2Y=,iv:7nNzm1Oi9dCZDT4pbYWpUamf6lXOsleDhnJYgPBG0cI=,tag:Cwl+//B1u8LsPU43FnqIBQ==,type:str]"
     }, 
     "production": {
-        "github_oauth_token": "ENC[AES256_GCM,data:ovf2ooSuPPCx1Q==,iv:/hg/ujV74LcadGm24NDAo5iu6grJoK6vfBQR6GYyF4M=,tag:2VIdGyt7HU6SfScEEuXy2w==,type:str]"
+        "github_username_unencrypted": "twolfson", 
+        "github_password": "ENC[AES256_GCM,data:lc44Ny0kelmq1s7CDLE=,iv:qmdpHMFyyu8Fx9Qy0autN5HrANIhk6fCXObPd8ojntU=,tag:Okg6Y/BqSd2Q/yU9IYOPkw==,type:str]"
     }, 
     "sops": {
-        "mac": "ENC[AES256_GCM,data:zOiQOyUuWk/bFjjgcRcJLb5YBKKdfA19q3FiDANgve+ykolecnbW001zXpDNQas8wOdbko0e6PL9b9lMfQcBqFAjMeo/4ATr7cC4QM6nbmK4tDpBjnqpfA8coXwoxOlD+LQyWZgRmm2wdCX0PnZsVrjTk4uHbwpX6x2/QO2xPNk=,iv:H/pLhRbXRDFucztIMDc/H5Ou4F9E7aoVGBQpvjFi/KY=,tag:6P08ko945AIuYGUON8Lj2g==,type:str]", 
+        "mac": "ENC[AES256_GCM,data:25YOvnWtLThQwdloh15gdgtebnLDRRFYOLgVvCKaJLSWkwInZnYNusoPOQ/zWCwWLz9dOzYq2q+CfANopnIxLw7OcQsaz1CNE3tDeE/j7D6eraFvhbqxbSBcOvMFIO5wswmcKJq60W39DovRosNmLh22u+kycIpfyykex6SIpCU=,iv:l8/149y0iQv248qDN+KFjgEDGWUej/XUIAvwN3OKewE=,tag:g6ul7ing5PlRO/Ofz3eEkQ==,type:str]", 
         "version": 1.6, 
         "kms": [
             {
@@ -24,7 +27,7 @@
                 "enc": "-----BEGIN PGP MESSAGE-----\nVersion: GnuPG v1\n\nhIwDEEVDpnzXnMABA/9hQVFyHXnNCnE0YIcXvar4YtFyRNnuV5zTaQskRqPYS14z\nPkqUpx03PVsT4c84YLx3bAu9OM0so8fsXAW7+YpX5A1ZChWpy0Qt7lg6k/4qyUSl\nMO5x+4ZdU5C866no0Q3UHrBy0oxORYUwbKsWU8IMSNWuSXGcqRsU0nyschvhb9Je\nARNsbbGsL2qeaYqjTwD3p3awkef2voVwYGTuSbvKcEfb5X1JrWrX1Igk8wwCe/uw\nlB2SXpk1bQ16ZfsT39+bOaeu6v8mREHG+KKk3k7ddFmML5TbPYqSme7BcW1IQA==\n=c6L/\n-----END PGP MESSAGE-----\n"
             }
         ], 
-        "lastmodified": "2016-02-12T07:05:04Z", 
+        "lastmodified": "2016-02-12T07:08:50Z", 
         "attention": "This section contains key material that should only be modified with extra care. See `sops -h`.", 
         "unencrypted_suffix": "_unencrypted"
     }
