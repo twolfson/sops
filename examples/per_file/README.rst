@@ -54,8 +54,10 @@ Files
 - ``config`` - Directory containing decrypted secrets
 - ``config.bak`` - Backup of ``config`` to prevent accidental data loss
 - ``config.enc`` - Directory containing encrypted secrets
-    - ``static.py`` - Python script to merge together secrets
-    - ``static_github.json`` - File containing secrets
+
+  - ``static.py`` - Python script to merge together secrets
+  - ``static_github.json`` - File containing secrets
+
 - ``.gitignore`` - Ignore file for ``config`` and ``config.bak``
 - ``main.py`` - Example script
 
