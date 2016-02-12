@@ -26,35 +26,24 @@ config = {
 }
 
 
-def _walk(val, fn):
-    # If we are looking at a dict, then traverse again
+def walk(val, fn):
+    # If we are looking at a dict, then traverse each of its branches
     if isinstance(val, dict):
-        walk_dict(val, fn)
-    # Otherwise, if we are looking at a list, walk it
+        branch = val
+        for key in branch:
+            # Walk our value
+            walk(branch[key], fn)
+
+            # If we are changing our key, then update it
+            new_key = fn(key)
+            if new_key != key:
+                branch[new_key] = branch[key]
+                del branch[key]
+    # Otherwise, if we are looking at a list, walk each of its items
     elif isinstance(val, list):
-        walk_list(val, fn)
-
-
-def walk_dict(branch, fn):
-    """Helper to update branch keys"""
-    # For each key in our branch
-    for key in branch:
-        # If we are changing our key, then update it
-        new_key = fn(key)
-        val = branch[key]
-        if new_key != key:
-            branch[new_key] = val
-            del branch[key]
-
-        # Walk our value
-        _walk(val, fn)
-
-
-def walk_list(arr, fn):
-    """Helper to update branch keys"""
-    # For each item in our list, walk it
-    for val in arr:
-        _walk(val, fn)
+        arr = val
+        for val in arr:
+            walk(val, fn)
 
 
 # Merge all of our static secrets onto our config
@@ -69,6 +58,6 @@ for secret in secret_files:
         data = json.loads(file.read())
 
         # Strip off `_unencrypted` from all keys
-        walk_dict(data, lambda key: key.rstrip('_unencrypted'))
+        walk(data, lambda key: key.rstrip('_unencrypted'))
 
         print(data)
