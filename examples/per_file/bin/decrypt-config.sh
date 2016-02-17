@@ -23,7 +23,7 @@ for src_file in config.enc/*; do
   target_file="config/$src_filename"
 
   # If the file is our secret, then decrypt it
-  if echo "$file" | grep -E "${secret_ext}$" &&
+  if echo "$src_filename" | grep -E "${secret_ext}$" &&
       test "$CONFIG_COPY_ONLY" != "TRUE"; then
     sops --decrypt "$src_file" > "$target_file"
   # Otherwise, symlink to the original file
