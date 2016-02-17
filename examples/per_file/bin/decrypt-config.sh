@@ -17,10 +17,10 @@ fi
 mkdir config
 
 # For each of our files in our encrypted config
-for file in $(ls config.enc); do
-  # Determine src and target for our file
-  src_file="config.enc/$file"
-  target_file="config/$file"
+for src_file in config.enc/*; do
+  # Determine target for our file
+  src_filename="$(basename "$src_file")"
+  target_file="config/$src_filename"
 
   # If the file is our secret, then decrypt it
   if echo "$file" | grep -E "${secret_ext}$" &&
