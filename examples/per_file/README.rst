@@ -1,11 +1,13 @@
 Per-file example
 ================
+This directory is an example configuration for SOPS inside of a project. We will cover the files used and relevant scripts for developers.
+
 This example is optimized for storing sensitive information next to related non-sensitive information (e.g. password next to username).
 
-The downsides are:
+The downsides include:
 
-- Slow down developers by requiring usage of SOPS for non-sensitive information
-- Lose dynamic configurations that rely on reusing variables (e.g. ``test = {'foo': {'bar': common['foo']['bar'], 'baz': false}}``)
+- Slowing down developers by requiring usage of SOPS for non-sensitive information
+- Losing dynamic configurations that rely on reusing variables (e.g. ``test = {'foo': {'bar': common['foo']['bar'], 'baz': false}}``)
 
   - There might be work arounds via YAML
 
@@ -23,7 +25,7 @@ To use this example, run the following
     cd examples/per_file
 
     # Decrypt our secrets
-    bin/decrypt-secrets.sh
+    bin/decrypt-config.sh
 
     # Optionally edit a secret
     # bin/edit-secret.sh config.enc/static_github.json
